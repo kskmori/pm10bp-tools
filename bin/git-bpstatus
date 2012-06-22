@@ -1,0 +1,90 @@
+#!/bin/sh
+
+refstatus=backport-1.0-status
+refmemo=backport-1.0-memo
+
+usage() {
+  echo "usage: $0 [-p] [-d] [-s <status>] [-m <memo>] hash"
+  echo "    -p: print  notes/memo"
+  echo "    -d: delete status/memo"
+  echo "    <status>=NA|TBA|DONE|PEND|REJ"
+  echo "    <memo> abbrev."
+  echo "      %1='no code in 1.0'"
+  echo "      %2='new feature in 1.1'"
+  echo "      %3='keep old code'"
+  echo "      %4='preserve behavior'"
+  exit 1
+}
+
+print_notes() {
+ hash=$1
+ git log --show-notes=* -1 $hash
+}
+
+delete_notes() {
+ hash=$1
+ git notes --ref $refstatus remove $hash
+ git notes --ref $refmemo remove $hash
+}
+
+set_status() {
+ hash=$1
+ status=$2
+
+ git notes --ref $refstatus add -f -m "STATUS: $status" $hash
+}
+
+set_memo() {
+ hash=$1
+ memo=$2
+
+ case "$memo" in
+   %1) memo="no code in 1.0";;
+   %2) memo="new feature in 1.1";;
+   %3) memo="keep old code";;
+   %4) memo="preserve behavior";;
+ esac
+
+ git notes --ref $refmemo add -f -m "MEMO: $memo" $hash
+}
+
+####
+####
+####
+print=""
+delete=""
+status=""
+memo=""
+while getopts "pds:m:" opt; do
+  case $opt in
+    p) print=true;;
+    d) delete=true;;
+    s) status="$OPTARG";;
+    m) memo="$OPTARG";;
+  esac
+done
+
+shift $(($OPTIND - 1))
+
+if [ $# != 1 ]; then
+ usage
+fi
+
+hash=$1
+
+if [ -n "$delete" ]; then
+  delete_notes $hash
+fi
+
+if [ -n "$status" ]; then
+  set_status $hash $status
+fi
+if [ -n "$memo" ]; then
+  set_memo $hash "$memo"
+fi
+
+if [ -n "$print" ]; then
+  print_notes $hash
+fi
+
+

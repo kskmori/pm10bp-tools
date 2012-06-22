@@ -1,0 +1,10 @@
+#!/bin/sh
+
+refstatus=backport-1.0-status
+refmemo=backport-1.0-memo
+
+limittag=Pacemaker-1.1.6
+
+
+git log --topo-order -C -M --pretty=format:'%N,<%h>,%ad,"%s"' --date=short --show-notes=$refstatus $limittag.. | awk '/^STATUS:/ { printf("%s", $2); next } { print }'
+
