@@ -1,0 +1,42 @@
+#!/bin/sh
+
+outputdir=.
+startnum=""
+archivedir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches
+
+usage() {
+  echo "usage: $0 [-h] [-n <startnum>] [-o <outputdir>] commit [...]"
+  echo "    -n: start number"
+  echo "    -o: output directory"
+  exit 1
+}
+
+while getopts "hn:o:" opt; do
+  case $opt in
+    n) startnum="$OPTARG";;
+    o) outputdir="$OPTARG";;
+    h) usage;;
+  esac
+done
+
+shift $(($OPTIND - 1))
+
+commits="$@"
+
+
+getlastnum() {
+  num=`(cd $archivedir; ls -1r [0-9]*.patch | head -1 | cut -d '-' -f 1)`
+  echo $num
+}
+
+if [ -z $startnum ]; then
+ startnum=`getlastnum`
+ startnum=`expr $startnum + 1`
+fi
+
+for c in $commits; do
+  git format-patch --start-number $startnum -o $outputdir -1 $c
+  startnum=`expr $startnum + 1`
+done
+
+
