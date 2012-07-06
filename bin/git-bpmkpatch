@@ -1,7 +1,7 @@
 #!/bin/sh
 
-outputdir=.
 startnum=""
+outputdir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches-work
 archivedir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches
 
 usage() {
@@ -25,7 +25,10 @@ commits="$@"
 
 
 getlastnum() {
-  num=`(cd $archivedir; ls -1r [0-9]*.patch | head -1 | cut -d '-' -f 1)`
+  num=`(cd $outputdir; ls -1r [0-9]*.patch | head -1 | cut -d '-' -f 1)`
+  if [ -z $num ]; then
+    num=`(cd $archivedir; ls -1r [0-9]*.patch | head -1 | cut -d '-' -f 1)`
+  fi
   echo $num
 }
 

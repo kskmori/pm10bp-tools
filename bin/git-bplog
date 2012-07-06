@@ -6,20 +6,27 @@ refmemo=backport-1.0-memo
 limittag=Pacemaker-1.1.6
 
 usage() {
-  echo "usage: $0 [-l|t|n] [-h]"
+  echo "usage: $0 [-l|t|n] [-N <num>] [-h]"
   echo "    -l: print all backport status"
   echo "    -t: print commits to be applied"
   echo "    -n: print commits not determined"
+  echo "    -N: print last <num> hashes of the commits not determined"
   echo "    -h: print usage"
   exit 1;
 }
 
+lastnumhashes() {
+    grep ^, | tail -n "$1" | cut -d, -f2 | tr -d '<>'
+}
+
 FILTER="cat"
-while getopts "ltnh" opt; do
+LASTNUM="0"
+while getopts "ltnhN:" opt; do
   case $opt in
     l) FILTER="grep ^\(TBA\|DONE\|PEND\|REJ\)";;
-    t) FILTER="grep ^TBA";;
+    t) FILTER="grep ^\(TBA\|PEND\)";;
     n) FILTER="grep ^,";;
+    N) LASTNUM="$OPTARG"; FILTER="lastnumhashes $LASTNUM";;
     h) usage;;
   esac
 done

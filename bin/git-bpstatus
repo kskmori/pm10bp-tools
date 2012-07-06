@@ -4,7 +4,7 @@ refstatus=backport-1.0-status
 refmemo=backport-1.0-memo
 
 usage() {
-  echo "usage: $0 [-p] [-d] [-s <status>] [-m <memo>] hash"
+  echo "usage: $0 [-p] [-d] [-s <status>] [-m <memo>] [-N <num>] [-h] hash"
   echo "    -p: print  notes/memo"
   echo "    -d: delete status/memo"
   echo "    <status>=NA|TBA|DONE|PEND|REJ"
@@ -55,36 +55,43 @@ print=""
 delete=""
 status=""
 memo=""
-while getopts "pds:m:" opt; do
+lastnum=""
+while getopts "pds:m:N:h" opt; do
   case $opt in
     p) print=true;;
     d) delete=true;;
     s) status="$OPTARG";;
     m) memo="$OPTARG";;
+    N) lastnum="$OPTARG";;
+    h) usage;;
   esac
 done
 
 shift $(($OPTIND - 1))
 
-if [ $# != 1 ]; then
- usage
+commits="$@"
+
+if [ -n "$lastnum" ]; then
+    commits=`git bplog -N $lastnum`
+    echo "Changing status of commits:"
+    echo "$commits"
 fi
 
-hash=$1
+for c in $commits; do
+  if [ -n "$delete" ]; then
+    delete_notes $c
+  fi
 
-if [ -n "$delete" ]; then
-  delete_notes $hash
-fi
+  if [ -n "$status" ]; then
+    set_status $c $status
+  fi
+  if [ -n "$memo" ]; then
+    set_memo $c "$memo"
+  fi
 
-if [ -n "$status" ]; then
-  set_status $hash $status
-fi
-if [ -n "$memo" ]; then
-  set_memo $hash "$memo"
-fi
-
-if [ -n "$print" ]; then
-  print_notes $hash
-fi
+  if [ -n "$print" ]; then
+    print_notes $c
+  fi
+done
 
 
