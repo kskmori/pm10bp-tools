@@ -1,7 +1,7 @@
 # Backport status report for Pacemaker 1.0.13
-# Updated: 2012/07/13
+# Last updated: Fri Jul 13 19:48:19 JST 2012
 #
-# NA: Not Applicable, TBA: To Be Applied, DONE, Applied (in my local repo)
+# NA: Not Applicable, TBA: To Be Applied, DONE: Applied (in my local repo)
 # PEND: Pending, REJ: Rejected, (empty): Not reviewed yet
 #
 ,<445c49e>,2012-07-10,"Medium: Legacy: Rename the pluing's send_cluster_msg() function to avoid comflicting with heartbeat"
