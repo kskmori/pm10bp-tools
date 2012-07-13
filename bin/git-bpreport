@@ -1,0 +1,23 @@
+#!/bin/sh
+
+output=BACKPORTSTATUS-1.0.13.txt
+#output="$HOME/proj/ClusterLabs/pm10bp-tools/BACKPORTSTATUS-1.0.13.md"
+repourl="https://github.com/kskmori/pacemaker/commit/"
+
+cat_header() {
+cat - << EOF
+# Backport status report for Pacemaker 1.0.13
+# Last updated: `env LANG=C date`
+#
+# NA: Not Applicable, TBA: To Be Applied, DONE: Applied (in my local repo)
+# PEND: Pending, REJ: Rejected, (empty): Not reviewed yet
+#
+EOF
+}
+
+cat_header >$output
+git-bplog >>$output
+#git-bplog | awk  -F, 'BEGIN { OFS="," } { hash=$2; $2="[$hash]('$repourl'$hash)"; print }'
+
+
+
