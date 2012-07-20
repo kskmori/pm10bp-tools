@@ -25,9 +25,9 @@ commits="$@"
 
 
 getlastnum() {
-  num=`(cd $outputdir; ls -1r [0-9]*.patch | head -1 | cut -d '-' -f 1)`
+  num=`(cd $outputdir; ls -1r [0-9]*.patch 2>/dev/null| head -1 | cut -d '-' -f 1)`
   if [ -z $num ]; then
-    num=`(cd $archivedir; ls -1r [0-9]*.patch | head -1 | cut -d '-' -f 1)`
+    num=`(cd $archivedir; ls -1r [0-9]*.patch 2>/dev/null| head -1 | cut -d '-' -f 1)`
   fi
   echo $num
 }
