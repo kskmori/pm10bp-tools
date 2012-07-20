@@ -33,6 +33,8 @@ done
 
 shift $(($OPTIND - 1))
 
+# unset displayRef in git-config to show only relevant notes.
+export GIT_NOTES_DISPLAY_REF=
 git log --topo-order -C -M --pretty=format:'%N,<%h>,%ad,"%s"' --date=short --show-notes=$refstatus $limittag.. | awk '/^STATUS:/ { printf("%s", $2); next } { print }' | $FILTER
 
 
