@@ -1,8 +1,8 @@
 #!/bin/sh
 
 startnum=""
-outputdir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches-work
-archivedir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches
+outputdir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches
+archivedir=/home/ksk/proj/ClusterLabs/issues-1.0.13/patches-done
 
 usage() {
   echo "usage: $0 [-h] [-n <startnum>] [-o <outputdir>] commit [...]"
