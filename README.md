@@ -15,4 +15,6 @@ Managing the backport status of each commits using git notes.
 setup for using git notes
 
     git config --add remote.origin.fetch +refs/notes/*:refs/notes/*
-    git config --add remote.origin.push +refs/notes/*:refs/notes/*
+    # TODO: add push default refspecs
+    git config --add remote.origin.push refs/notes/*:refs/notes/*
+    git config --add notes.displayRef refs/notes/backport-1.0-*

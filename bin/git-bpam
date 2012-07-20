@@ -1,0 +1,33 @@
+#!/bin/sh
+
+GIT_AM_OPTS="-k --reject --ignore-whitespace"
+
+usage() {
+  echo "usage: $0 patch"
+  echo "  only one patch file is accepted."
+  echo "  .git/hooks/applypatch-msg should be used together."
+  exit 1
+}
+
+patch="$1"
+
+if [ $# != 1 ]; then
+  usage
+fi
+
+if [ -z "$patch" -o ! -r "$patch" ]; then
+  echo "patch file '$file' is not readable."
+  usage
+fi
+
+GIT_BPAM_ORIG_HASH=`head -1 $patch | cut -d " " -f 2`
+if [ -z "$GIT_BPAM_ORIG_HASH" ]; then
+  echo "can not obtain the original commit hash"
+  usage
+fi
+export GIT_BPAM_ORIG_HASH
+
+echo "$GIT_BPAM_ORIG_HASH"
+echo "git am $GIT_AM_OPTS $patch"
+
+git am $GIT_AM_OPTS $patch

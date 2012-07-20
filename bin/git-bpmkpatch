@@ -38,7 +38,7 @@ if [ -z $startnum ]; then
 fi
 
 for c in $commits; do
-  git format-patch --start-number $startnum -o $outputdir -1 $c
+  git format-patch --start-number $startnum -o $outputdir -1 -k $c
   startnum=`expr $startnum + 1`
 done
 

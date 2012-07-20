@@ -1,0 +1,27 @@
+#!/bin/sh
+
+msgfile="$1"
+
+#debuglog=""
+debuglog=/tmp/bpam-hook.log
+
+if [ -n "$debuglog" ]; then
+  echo "$0" "$@" >$debuglog
+  echo "GIT_BPAM_ORIG_HASH='$GIT_BPAM_ORIG_HASH'" >>$debuglog
+  echo "----" >> $debuglog
+  cat "$msgfile" >> $debuglog
+  echo "----" >> $debuglog
+fi
+
+if [ ! -w "$msgfile" ]; then
+  echo "$msgfile: not writable or not exist. (ignored)"
+  exit 0
+fi
+
+if [ -n "$GIT_BPAM_ORIG_HASH" ]; then
+  cat >>"$msgfile" <<EOF
+
+Backported from: $GIT_BPAM_ORIG_HASH
+EOF
+fi
+
