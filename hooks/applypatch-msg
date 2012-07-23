@@ -1,6 +1,7 @@
 #!/bin/sh
 
 msgfile="$1"
+ORIG_REPO=ClusterLabs/pacemaker
 
 #debuglog=""
 debuglog=/tmp/bpam-hook.log
@@ -21,7 +22,7 @@ fi
 if [ -n "$GIT_BPAM_ORIG_HASH" ]; then
   cat >>"$msgfile" <<EOF
 
-Backported from: $GIT_BPAM_ORIG_HASH
+Backported from: ${ORIG_REPO}@${GIT_BPAM_ORIG_HASH}
 EOF
 fi
 
