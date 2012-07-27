@@ -1,23 +1,82 @@
-#!/bin/sh
+#!/usr/bin/env perl
 
-output=BACKPORTSTATUS-1.0.13.txt
-#output="$HOME/proj/ClusterLabs/pm10bp-tools/BACKPORTSTATUS-1.0.13.md"
-repourl="https://github.com/kskmori/pacemaker/commit/"
+$workdir="$ENV{'HOME'}/proj/ClusterLabs/pacemaker-1.1-ksk";
+$out_txt="$ENV{'HOME'}/proj/ClusterLabs/pm10bp-tools/BACKPORTSTATUS-1.0.13.txt";
+$out_md="$ENV{'HOME'}/proj/ClusterLabs/pm10bp-tools/BACKPORTSTATUS-1.0.13.md";
+$tmp_txt="/tmp/git-bpreport-txt.tmp";
+$tmp_md="/tmp/git-bpreport-md.tmp";
+#$repourl="https://github.com/kskmori/pacemaker/commit/";
+$repourl="kskmori/pacemaker@";
 
-cat_header() {
-cat - << EOF
+# statistics variables
+$total = 0;
+$empty = 0;
+$tba = 0;
+$done = 0;
+$pend = 0;
+$rej = 0;
+$na = 0;
+
+open(BPLOG, "(cd $workdir; git bplog)|") or die "$!";
+open(TMP_TXT, ">$tmp_txt") or die "$!";
+open(TMP_MD, ">$tmp_md") or die "$!";
+
+while (<BPLOG>) {
+    print TMP_TXT $_;
+    chomp;
+    @log = split(/,/);
+    $total++;
+    $empty++ if (/^,/);
+    $tba++ if (/^TBA/);
+    $done++ if (/^DONE/);
+    $pend++ if (/^PEND/);
+    $rej++ if (/^REJ/);
+    $na++ if (/^NA/);
+    $log[1] =~ s/<([^>]+)>/\[<$1>\]\($repourl$1\)/;
+    $_=join(',', @log);
+    print TMP_MD "$_\n";
+}
+close(TMP_TXT);
+close(TMP_MD);
+close(BPLOG);
+
+$rest = $tba + $pend;
+$bptotal = $tba + $pend + $done;
+$date = `env LANG=C date`;
+
+$header = <<"EOF"
 # Backport status report for Pacemaker 1.0.13
-# Last updated: `env LANG=C date`
+# Last updated: $date
 #
-# NA: Not Applicable, TBA: To Be Applied, DONE: Applied (in my local repo)
-# PEND: Pending, REJ: Rejected, (empty): Not reviewed yet
+# Summary:
+#   Backport commits: $rest / $bptotal (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   review commits: $empty / $total (Rest:empty / Total commits)
+#
+# NA: Not Applicable($na), TBA: To Be Applied($tba), PEND: Pending($pend)
+# DONE: Applied($done), REJ: Rejected($rej), (empty): Not reviewed yet($empty)
 #
 EOF
+    ;
+
+open(OUT_TXT, ">$out_txt") or die "$!";
+open(TMP_TXT, "<$tmp_txt") or die "$!";
+print OUT_TXT $header;
+while (<TMP_TXT>) {
+    print OUT_TXT $_;
 }
+close(TMP_TXT);
+close(OUT_TXT);
 
-cat_header >$output
-git-bplog >>$output
-#git-bplog | awk  -F, 'BEGIN { OFS="," } { hash=$2; $2="[$hash]('$repourl'$hash)"; print }'
+### md file with link; link does not work
+#open(OUT_MD, ">$out_md") or die "$!";
+#open(TMP_MD, "<$tmp_md") or die "$!";
+#print OUT_MD $header;
+#while (<TMP_MD>) {
+#    print OUT_MD $_;
+#}
+#close(TMP_MD);
+#close(OUT_MD);
+###
 
-
-
+unlink "$tmp_txt";
+unlink "$tmp_md";
