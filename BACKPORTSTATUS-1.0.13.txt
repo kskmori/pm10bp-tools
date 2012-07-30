@@ -1,8 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Tue Jul 24 14:01:28 JST 2012
+# Last updated: Mon Jul 30 19:06:41 JST 2012
+
 #
-# NA: Not Applicable, TBA: To Be Applied, DONE: Applied (in my local repo)
-# PEND: Pending, REJ: Rejected, (empty): Not reviewed yet
+# Summary:
+#   Backport commits: 67 / 107 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   review commits: 0 / 1255 (Rest:empty / Total commits)
+#
+# NA: Not Applicable(1142), TBA: To Be Applied(37), PEND: Pending(30)
+# DONE: Applied(40), REJ: Rejected(6), (empty): Not reviewed yet(0)
 #
 NA,<f3300de>,2012-07-17,"Merge pull request #120 from davidvossel/lrmd_cleanup"
 NA,<45805ab>,2012-07-17,"Low: lrmd: Removes unused code from lrmd/test.c"
@@ -749,8 +754,8 @@ NA,<f00eb32>,2012-03-02,"Low: PE: Bug cl#5000 - Additional regression tests for 
 NA,<3e5b316>,2012-03-01,"Low: pengine: Bug cl#5000 - Implements ability to create rsc_order constraint sets such that A can start after B or C has started (regression tests)"
 NA,<8d39fe1>,2012-03-01,"High: pengine: Bug cl#5000 - Implements ability to create rsc_order constraint sets such that A can start after B or C has started."
 NA,<797d740>,2012-03-02,"High: fencing: fence_legacy - Drop spurilous host argument from status query"
-TBA,<cd075e4>,2012-03-01,"Low: pengine: Adds additional regression tests for bug #5014 specific to the use of sets"
-TBA,<04754a0>,2012-03-01,"High: pengine: Fixes regression in default use of symmetrical=true for ordered constraint sets caused by revision 03f9d869bd"
+PEND,<cd075e4>,2012-03-01,"Low: pengine: Adds additional regression tests for bug #5014 specific to the use of sets"
+PEND,<04754a0>,2012-03-01,"High: pengine: Fixes regression in default use of symmetrical=true for ordered constraint sets caused by revision 03f9d869bd"
 NA,<17d56b3>,2012-03-01,"Merge pull request #35 from nozawat/master"
 DONE,<f9978f3>,2012-03-01,"Correction to exact sed scripts"
 NA,<c26e624>,2012-03-01,"Low: PE: Bug rhbz#789397 - Failcount and related info should be reset or removed when the resource is deleted (regression test)"
@@ -788,12 +793,12 @@ NA,<beb9c1f>,2011-10-26,"Medium: xml: Add rsc_ticket support into "pacemaker-1.2
 NA,<742603f>,2012-02-24,"Low: Build: Make it easier to test compilation on other fedora versions"
 NA,<b206695>,2012-02-24,"Low: Build: Find the corosync_common library if necessary"
 NA,<45bf5dc>,2012-02-24,"Merge branch 'master' of github.com:beekhof/pacemaker"
-TBA,<03f9d86>,2012-02-23,"Low: pengine: Adds regression tests for bug #5014."
-NA,<5edb2cb>,2012-02-23,"High: pengine: Bug #5014, Prevent asymmetrical order constraints from causing resource stops"
-TBA,<77e792d>,2012-02-24,"Low: PE: Indicate the human readable version of agent error codes"
+PEND,<03f9d86>,2012-02-23,"Low: pengine: Adds regression tests for bug #5014."
+PEND,<5edb2cb>,2012-02-23,"High: pengine: Bug #5014, Prevent asymmetrical order constraints from causing resource stops"
+DONE,<77e792d>,2012-02-24,"Low: PE: Indicate the human readable version of agent error codes"
 NA,<9ea9ed1>,2012-02-24,"Low: Core: Correctly determine if we should compile xslt related functionality"
 NA,<3858cb6>,2012-02-24,"Low: doc: Indicate the correct node address"
-TBA,<543ee8e>,2012-02-24,"Medium: crmd: Badly configured resources can't be reliably stopped, treat them as not running for logging purposes"
+DONE,<543ee8e>,2012-02-24,"Medium: crmd: Badly configured resources can't be reliably stopped, treat them as not running for logging purposes"
 NA,<66d55ef>,2012-02-23,"Merge pull request #29 from davidvossel/xml_parse_segfault"
 DONE,<1a52446>,2012-02-23,"Low: lib: Fixes segfault in xml.c when xmlDocGetRootElement returns NULL"
 NA,<3119df0>,2012-02-20,"Merge pull request #27 from yuusuke/iidayuus"
@@ -823,7 +828,7 @@ NA,<7fe02af>,2012-02-15,"Low: corosync: Hide the IPC message header variants beh
 NA,<465232a>,2012-02-15,"High: corosync: Use the correct structure when libqb is present but corosync isn't built to use it"
 NA,<0b63915>,2012-02-15,"Low: corosync: Use the relevant enum instead of hard-coding 0 for cluster messages"
 NA,<1ec189b>,2012-02-15,"High: mcp: Fix compilation against corosync 1.4.x"
-TBA,<eaf865c>,2012-02-15,"High: crmd: Supply format arguments in the correct order"
+DONE,<eaf865c>,2012-02-15,"High: crmd: Supply format arguments in the correct order"
 NA,<b56d750>,2012-02-15,"Low: Build: Always build packages verbosely"
 DONE,<57203e5>,2012-02-15,"Medium: corosync: Bug rhbz#729035 - Build pacemaker/corosync plugin with the correct options"
 DONE,<e68e64b>,2012-02-15,"Low: corosync: Fix some compile warnings in the pacemaker/corosync plugin"
@@ -836,7 +841,7 @@ NA,<b5e63a5>,2012-02-14,"Medium: mcp: Start stonith after the cib now that it co
 NA,<ebaa3e3>,2012-02-14,"Low: extra: Fix cman initialization"
 NA,<691cc79>,2012-02-14,"Low: doc: Import chapter on utilization and placement"
 NA,<f489878>,2012-02-14,"Low: doc: Add P-E credits"
-TBA,<5d00c65>,2012-02-13,"High: crmd: Fast-track shutdown if we couldn't request it via attrd"
+DONE,<5d00c65>,2012-02-13,"High: crmd: Fast-track shutdown if we couldn't request it via attrd"
 NA,<1d6f782>,2012-02-13,"Low: crmd: Avoid the string 'error:' in log formats"
 NA,<176035c>,2012-02-13,"Low: extra: cluster-init - Install the abrt package for tracking and interrogating core dumps"
 NA,<135f072>,2012-02-13,"Low: Tools: crm_report - Record a dump of corosync config and runtime variables"
