@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Mon Jul 30 19:06:41 JST 2012
+# Last updated: Tue Jul 31 14:13:55 JST 2012
 
 #
 # Summary:
-#   Backport commits: 67 / 107 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 63 / 107 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
 #   review commits: 0 / 1255 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1142), TBA: To Be Applied(37), PEND: Pending(30)
-# DONE: Applied(40), REJ: Rejected(6), (empty): Not reviewed yet(0)
+# NA: Not Applicable(1142), TBA: To Be Applied(33), PEND: Pending(30)
+# DONE: Applied(44), REJ: Rejected(6), (empty): Not reviewed yet(0)
 #
 NA,<f3300de>,2012-07-17,"Merge pull request #120 from davidvossel/lrmd_cleanup"
 NA,<45805ab>,2012-07-17,"Low: lrmd: Removes unused code from lrmd/test.c"
@@ -768,8 +768,8 @@ NA,<cd71bcc>,2012-02-29,"Medium: fencing: Bug rhbz#720218 - Advertise support fo
 NA,<00dbaaa>,2012-02-28,"Merge pull request #34 from davidvossel/xml_mon_stdout"
 NA,<dfa526b>,2012-02-28,"Low: tools: Update crm_mon's help documentation concerning --as-xml option"
 NA,<9c928be>,2012-02-28,"Low: tools: crm_mon's as-xml option by default prints to stdout."
-TBA,<5ec38ab>,2012-02-28,"Low: PE: Bug cl#5038 - Prevent restart of anonymous clones when clone-max decreases (regression test)"
-TBA,<974d720>,2012-02-28,"High: PE: Bug cl#5038 - Prevent restart of anonymous clones when clone-max decreases"
+DONE,<5ec38ab>,2012-02-28,"Low: PE: Bug cl#5038 - Prevent restart of anonymous clones when clone-max decreases (regression test)"
+DONE,<974d720>,2012-02-28,"High: PE: Bug cl#5038 - Prevent restart of anonymous clones when clone-max decreases"
 NA,<237b1a3>,2012-02-28,"Medium: Doc: Correctly avoid tag duplication by specifying one manually for common titles"
 NA,<32ab143>,2012-02-28,"Low: fencing: Remove unneeded header"
 NA,<38a6889>,2012-02-28,"Medium: Doc: Avoid tag duplication by specifying one manually for common titles"
@@ -781,8 +781,8 @@ NA,<58ded09>,2012-02-24,"Low: doc: Document the "migration-limit" cluster option
 NA,<ae19833>,2012-02-22,"Low: doc: Minor revisions of documentation"
 NA,<b279324>,2012-02-24,"Low: doc: Documentation on "Resource Templates""
 NA,<c4daf73>,2011-10-26,"Medium: xml: Add resource template support into "pacemaker-1.2" schema"
-TBA,<92ff7dc>,2012-02-27,"Low: pengine: Adds regression tests for bug #5007"
-TBA,<6c75fab>,2012-02-27,"High: pengine: Bug #5007, Fixes use of colocation constraints with multi-state resources"
+DONE,<92ff7dc>,2012-02-27,"Low: pengine: Adds regression tests for bug #5007"
+DONE,<6c75fab>,2012-02-27,"High: pengine: Bug #5007, Fixes use of colocation constraints with multi-state resources"
 NA,<d60ebd5>,2012-02-27,"Low: doc: Fix the macros for refreshing the tranlation templates"
 NA,<2436147>,2012-02-27,"Low: doc: Refresh translation templates"
 NA,<86e4083>,2012-01-17,"Low: doc: Initial Romainian translation of Clusters from Scratch"
