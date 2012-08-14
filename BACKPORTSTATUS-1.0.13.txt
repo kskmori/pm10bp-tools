@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Fri Aug 10 22:06:10 JST 2012
+# Last updated: Tue Aug 14 10:10:00 JST 2012
 
 #
 # Summary:
-#   Backport commits: 16 / 91 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 9 / 86 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
 #   review commits: 0 / 1255 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1148), TBA: To Be Applied(0), PEND: Pending(16)
-# DONE: Applied(75), REJ: Rejected(16), (empty): Not reviewed yet(0)
+# NA: Not Applicable(1148), TBA: To Be Applied(0), PEND: Pending(9)
+# DONE: Applied(77), REJ: Rejected(21), (empty): Not reviewed yet(0)
 #
 NA,<f3300de>,2012-07-17,"Merge pull request #120 from davidvossel/lrmd_cleanup"
 NA,<45805ab>,2012-07-17,"Low: lrmd: Removes unused code from lrmd/test.c"
@@ -570,7 +570,7 @@ NA,<ec9a806>,2012-04-17,"Merge pull request #65 from davidvossel/bug-5058"
 DONE,<ad91e11>,2012-04-12,"Low: pengine: cl#5058 - Regression tests for on-fail operation fix"
 NA,<54266cb>,2012-04-12,"Medium: pengine: cl#5058 - Fixes issue with on-fail option on operation being ignored."
 NA,<ea94b60>,2012-04-17,"Merge pull request #67 from gao-yan/crmd-lrm-reconnect"
-PEND,<9742383>,2012-04-14,"High: crmd: cl#5057 - Restart sub-systems correctly (bnc#755671)"
+DONE,<9742383>,2012-04-14,"High: crmd: cl#5057 - Restart sub-systems correctly (bnc#755671)"
 NA,<3ab3ec3>,2012-04-06,"Medium: corosync: Fix compilation when libqb is not available"
 NA,<fb0e227>,2012-04-13,"Merge pull request #66 from inouekazu/bugfix"
 NA,<35bbc03>,2012-04-13,"heartbeat: Fix a variable name"
@@ -640,10 +640,10 @@ NA,<ee0730e>,2012-03-27,"Low: Build: Update version and changelog"
 NA,<bc7ff2c>,2012-03-28,"Medium: cib: Even with no peers, we still need to wait for connected clients to disconnect"
 NA,<b2e2033>,2012-03-28,"Low: cib: Log connected clients at shutdown"
 NA,<d8a2d1f>,2012-03-28,"Medium: corosync: Fix complation warning when corosync doesn't use libqb"
-PEND,<0e23a55>,2012-03-28,"High: cib: Determine when there are no peers to respond to our shutdown request and exit"
+REJ,<0e23a55>,2012-03-28,"High: cib: Determine when there are no peers to respond to our shutdown request and exit"
 NA,<8a4b5be>,2012-03-27,"High: cib: Correctly shutdown in the presence of peers without relying on timers"
 NA,<9ac6484>,2012-03-28,"High: Corosync: Correctly disconnect from corosync variants"
-PEND,<c896b1f>,2012-03-27,"High: cib: Ensure no additional messages are processed after we begin terminating"
+REJ,<c896b1f>,2012-03-27,"High: cib: Ensure no additional messages are processed after we begin terminating"
 NA,<da3fd02>,2012-03-28,"Medium: Corosync: Reset connection variables after disconnect"
 NA,<31a80f8>,2012-03-28,"Low: Build: Man pages don't depend on the 'doc' specfile conditional anymore"
 NA,<758ed67>,2012-03-27,"Low: Build: Drop unused config option"
@@ -754,8 +754,8 @@ NA,<f00eb32>,2012-03-02,"Low: PE: Bug cl#5000 - Additional regression tests for 
 NA,<3e5b316>,2012-03-01,"Low: pengine: Bug cl#5000 - Implements ability to create rsc_order constraint sets such that A can start after B or C has started (regression tests)"
 NA,<8d39fe1>,2012-03-01,"High: pengine: Bug cl#5000 - Implements ability to create rsc_order constraint sets such that A can start after B or C has started."
 NA,<797d740>,2012-03-02,"High: fencing: fence_legacy - Drop spurilous host argument from status query"
-PEND,<cd075e4>,2012-03-01,"Low: pengine: Adds additional regression tests for bug #5014 specific to the use of sets"
-PEND,<04754a0>,2012-03-01,"High: pengine: Fixes regression in default use of symmetrical=true for ordered constraint sets caused by revision 03f9d869bd"
+REJ,<cd075e4>,2012-03-01,"Low: pengine: Adds additional regression tests for bug #5014 specific to the use of sets"
+REJ,<04754a0>,2012-03-01,"High: pengine: Fixes regression in default use of symmetrical=true for ordered constraint sets caused by revision 03f9d869bd"
 NA,<17d56b3>,2012-03-01,"Merge pull request #35 from nozawat/master"
 DONE,<f9978f3>,2012-03-01,"Correction to exact sed scripts"
 NA,<c26e624>,2012-03-01,"Low: PE: Bug rhbz#789397 - Failcount and related info should be reset or removed when the resource is deleted (regression test)"
@@ -793,8 +793,8 @@ NA,<beb9c1f>,2011-10-26,"Medium: xml: Add rsc_ticket support into "pacemaker-1.2
 NA,<742603f>,2012-02-24,"Low: Build: Make it easier to test compilation on other fedora versions"
 NA,<b206695>,2012-02-24,"Low: Build: Find the corosync_common library if necessary"
 NA,<45bf5dc>,2012-02-24,"Merge branch 'master' of github.com:beekhof/pacemaker"
-PEND,<03f9d86>,2012-02-23,"Low: pengine: Adds regression tests for bug #5014."
-PEND,<5edb2cb>,2012-02-23,"High: pengine: Bug #5014, Prevent asymmetrical order constraints from causing resource stops"
+DONE,<03f9d86>,2012-02-23,"Low: pengine: Adds regression tests for bug #5014."
+REJ,<5edb2cb>,2012-02-23,"High: pengine: Bug #5014, Prevent asymmetrical order constraints from causing resource stops"
 DONE,<77e792d>,2012-02-24,"Low: PE: Indicate the human readable version of agent error codes"
 NA,<9ea9ed1>,2012-02-24,"Low: Core: Correctly determine if we should compile xslt related functionality"
 NA,<3858cb6>,2012-02-24,"Low: doc: Indicate the correct node address"
