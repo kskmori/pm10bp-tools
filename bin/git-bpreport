@@ -5,8 +5,8 @@ $out_txt="$ENV{'HOME'}/proj/ClusterLabs/pm10bp-tools/BACKPORTSTATUS-1.0.13.txt";
 $out_md="$ENV{'HOME'}/proj/ClusterLabs/pm10bp-tools/BACKPORTSTATUS-1.0.13.md";
 $tmp_txt="/tmp/git-bpreport-txt.tmp";
 $tmp_md="/tmp/git-bpreport-md.tmp";
-#$repourl="https://github.com/kskmori/pacemaker/commit/";
-$repourl="kskmori/pacemaker@";
+$repourl="https://github.com/kskmori/pacemaker/commit/";
+#$repourl="kskmori/pacemaker@";
 
 # statistics variables
 $total = 0;
@@ -32,9 +32,12 @@ while (<BPLOG>) {
     $pend++ if (/^PEND/);
     $rej++ if (/^REJ/);
     $na++ if (/^NA/);
-    $log[1] =~ s/<([^>]+)>/\[<$1>\]\($repourl$1\)/;
+#    $log[1] =~ s/<([^>]+)>/\[<$1>\]\($repourl$1\)/;
+    $log[1] =~ s/<([^>]+)>/$1/;
+    $link="$repourl$log[1]";
+    $log[1] = " $log[1] ";
     $_=join(',', @log);
-    print TMP_MD "$_\n";
+    print TMP_MD "[$_]($link)  \n";  # two trailing spaces for linebreaking
 }
 close(TMP_TXT);
 close(TMP_MD);
@@ -68,14 +71,14 @@ close(TMP_TXT);
 close(OUT_TXT);
 
 ### md file with link; link does not work
-#open(OUT_MD, ">$out_md") or die "$!";
-#open(TMP_MD, "<$tmp_md") or die "$!";
-#print OUT_MD $header;
-#while (<TMP_MD>) {
-#    print OUT_MD $_;
-#}
-#close(TMP_MD);
-#close(OUT_MD);
+open(OUT_MD, ">$out_md") or die "$!";
+open(TMP_MD, "<$tmp_md") or die "$!";
+print OUT_MD $header;
+while (<TMP_MD>) {
+    print OUT_MD "$_";
+}
+close(TMP_MD);
+close(OUT_MD);
 ###
 
 unlink "$tmp_txt";
