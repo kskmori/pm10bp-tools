@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Tue Aug 14 10:10:00 JST 2012
+# Last updated: Tue Aug 14 13:13:44 JST 2012
 
 #
 # Summary:
-#   Backport commits: 9 / 86 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 4 / 85 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
 #   review commits: 0 / 1255 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1148), TBA: To Be Applied(0), PEND: Pending(9)
-# DONE: Applied(77), REJ: Rejected(21), (empty): Not reviewed yet(0)
+# NA: Not Applicable(1149), TBA: To Be Applied(0), PEND: Pending(4)
+# DONE: Applied(81), REJ: Rejected(21), (empty): Not reviewed yet(0)
 #
 [NA, f3300de ,2012-07-17,"Merge pull request #120 from davidvossel/lrmd_cleanup"](https://github.com/kskmori/pacemaker/commit/f3300de)  
 [NA, 45805ab ,2012-07-17,"Low: lrmd: Removes unused code from lrmd/test.c"](https://github.com/kskmori/pacemaker/commit/45805ab)  
@@ -165,9 +165,9 @@
 [NA, 47d8646 ,2012-07-03,"Medium: services: Gracefully handle failure to connect to the upstart/systemd daemon"](https://github.com/kskmori/pacemaker/commit/47d8646)  
 [NA, 7fb99e4 ,2012-07-03,"Medium: lrmd: Correctly locate the required test binaries"](https://github.com/kskmori/pacemaker/commit/7fb99e4)  
 [NA, 5028890 ,2012-07-03,"High: fencing: Fix compilation when cluster-glue is not present"](https://github.com/kskmori/pacemaker/commit/5028890)  
-[PEND, cc8d75f ,2012-07-02,"Low: pengine: cl#5072 - New regression test to ensure master monitor op starts"](https://github.com/kskmori/pacemaker/commit/cc8d75f)  
-[PEND, e4f02e4 ,2012-07-02,"Low: pengine: cl#5072 - Updates remaining failing pengine regression test for recent changes"](https://github.com/kskmori/pacemaker/commit/e4f02e4)  
-[PEND, d447452 ,2012-07-02,"High: pengine: cl#5072 - Fixes pengine regression test failures"](https://github.com/kskmori/pacemaker/commit/d447452)  
+[DONE, cc8d75f ,2012-07-02,"Low: pengine: cl#5072 - New regression test to ensure master monitor op starts"](https://github.com/kskmori/pacemaker/commit/cc8d75f)  
+[DONE, e4f02e4 ,2012-07-02,"Low: pengine: cl#5072 - Updates remaining failing pengine regression test for recent changes"](https://github.com/kskmori/pacemaker/commit/e4f02e4)  
+[DONE, d447452 ,2012-07-02,"High: pengine: cl#5072 - Fixes pengine regression test failures"](https://github.com/kskmori/pacemaker/commit/d447452)  
 [NA, 02e388e ,2012-07-03,"Revert "Low: Build: Mark private functions as internal""](https://github.com/kskmori/pacemaker/commit/02e388e)  
 [NA, 61fa54d ,2012-07-02,"Low: Build: Mark private functions as internal"](https://github.com/kskmori/pacemaker/commit/61fa54d)  
 [NA, ee7c7cc ,2012-07-02,"Low: Build: Remove unneeded replace functions"](https://github.com/kskmori/pacemaker/commit/ee7c7cc)  
@@ -178,8 +178,8 @@
 [NA, d364b90 ,2012-07-02,"Low: cib: Remove old declaration of cib_error2string()"](https://github.com/kskmori/pacemaker/commit/d364b90)  
 [NA, 9abc761 ,2012-07-02,"Merge branch 'master' of github.com:ClusterLabs/pacemaker"](https://github.com/kskmori/pacemaker/commit/9abc761)  
 [NA, 5081b1e ,2012-07-01,"Merge pull request #98 from davidvossel/bug-5072"](https://github.com/kskmori/pacemaker/commit/5081b1e)  
-[PEND, fc03be0 ,2012-06-29,"High: pengine: cl#5072 - Fixes monitor op stopping after rsc promotion."](https://github.com/kskmori/pacemaker/commit/fc03be0)  
-[PEND, b4c1afd ,2012-06-29,"High: lrmd: cl#5072 - Keep notify ops out of CIB."](https://github.com/kskmori/pacemaker/commit/b4c1afd)  
+[DONE, fc03be0 ,2012-06-29,"High: pengine: cl#5072 - Fixes monitor op stopping after rsc promotion."](https://github.com/kskmori/pacemaker/commit/fc03be0)  
+[NA, b4c1afd ,2012-06-29,"High: lrmd: cl#5072 - Keep notify ops out of CIB."](https://github.com/kskmori/pacemaker/commit/b4c1afd)  
 [NA, 23aae70 ,2012-07-01,"Merge pull request #97 from t-matsuo/disable-systemd-patch"](https://github.com/kskmori/pacemaker/commit/23aae70)  
 [NA, a6245ad ,2012-06-29,"Low: services: Fix compile error when not using systemd"](https://github.com/kskmori/pacemaker/commit/a6245ad)  
 [NA, 1f2cdae ,2012-06-28,"Merge pull request #96 from davidvossel/systemd_upstart_cleanup"](https://github.com/kskmori/pacemaker/commit/1f2cdae)  

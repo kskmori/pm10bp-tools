@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Tue Aug 14 10:10:00 JST 2012
+# Last updated: Tue Aug 14 13:13:44 JST 2012
 
 #
 # Summary:
-#   Backport commits: 9 / 86 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 4 / 85 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
 #   review commits: 0 / 1255 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1148), TBA: To Be Applied(0), PEND: Pending(9)
-# DONE: Applied(77), REJ: Rejected(21), (empty): Not reviewed yet(0)
+# NA: Not Applicable(1149), TBA: To Be Applied(0), PEND: Pending(4)
+# DONE: Applied(81), REJ: Rejected(21), (empty): Not reviewed yet(0)
 #
 NA,<f3300de>,2012-07-17,"Merge pull request #120 from davidvossel/lrmd_cleanup"
 NA,<45805ab>,2012-07-17,"Low: lrmd: Removes unused code from lrmd/test.c"
@@ -165,9 +165,9 @@ NA,<0b7f827>,2012-07-03,"Low: lrmd: Add option processing"
 NA,<47d8646>,2012-07-03,"Medium: services: Gracefully handle failure to connect to the upstart/systemd daemon"
 NA,<7fb99e4>,2012-07-03,"Medium: lrmd: Correctly locate the required test binaries"
 NA,<5028890>,2012-07-03,"High: fencing: Fix compilation when cluster-glue is not present"
-PEND,<cc8d75f>,2012-07-02,"Low: pengine: cl#5072 - New regression test to ensure master monitor op starts"
-PEND,<e4f02e4>,2012-07-02,"Low: pengine: cl#5072 - Updates remaining failing pengine regression test for recent changes"
-PEND,<d447452>,2012-07-02,"High: pengine: cl#5072 - Fixes pengine regression test failures"
+DONE,<cc8d75f>,2012-07-02,"Low: pengine: cl#5072 - New regression test to ensure master monitor op starts"
+DONE,<e4f02e4>,2012-07-02,"Low: pengine: cl#5072 - Updates remaining failing pengine regression test for recent changes"
+DONE,<d447452>,2012-07-02,"High: pengine: cl#5072 - Fixes pengine regression test failures"
 NA,<02e388e>,2012-07-03,"Revert "Low: Build: Mark private functions as internal""
 NA,<61fa54d>,2012-07-02,"Low: Build: Mark private functions as internal"
 NA,<ee7c7cc>,2012-07-02,"Low: Build: Remove unneeded replace functions"
@@ -178,8 +178,8 @@ NA,<4789299>,2012-07-02,"Low: Doc: TODO list update"
 NA,<d364b90>,2012-07-02,"Low: cib: Remove old declaration of cib_error2string()"
 NA,<9abc761>,2012-07-02,"Merge branch 'master' of github.com:ClusterLabs/pacemaker"
 NA,<5081b1e>,2012-07-01,"Merge pull request #98 from davidvossel/bug-5072"
-PEND,<fc03be0>,2012-06-29,"High: pengine: cl#5072 - Fixes monitor op stopping after rsc promotion."
-PEND,<b4c1afd>,2012-06-29,"High: lrmd: cl#5072 - Keep notify ops out of CIB."
+DONE,<fc03be0>,2012-06-29,"High: pengine: cl#5072 - Fixes monitor op stopping after rsc promotion."
+NA,<b4c1afd>,2012-06-29,"High: lrmd: cl#5072 - Keep notify ops out of CIB."
 NA,<23aae70>,2012-07-01,"Merge pull request #97 from t-matsuo/disable-systemd-patch"
 NA,<a6245ad>,2012-06-29,"Low: services: Fix compile error when not using systemd"
 NA,<1f2cdae>,2012-06-28,"Merge pull request #96 from davidvossel/systemd_upstart_cleanup"
