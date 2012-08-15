@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Wed Aug 15 18:00:58 JST 2012
+# Last updated: Wed Aug 15 19:28:52 JST 2012
 
 #
 # Summary:
-#   Backport commits: 15 / 96 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 10 / 91 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
 #   review commits: 0 / 1434 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1314), TBA: To Be Applied(9), PEND: Pending(6)
-# DONE: Applied(81), REJ: Rejected(24), (empty): Not reviewed yet(0)
+# NA: Not Applicable(1318), TBA: To Be Applied(4), PEND: Pending(6)
+# DONE: Applied(81), REJ: Rejected(25), (empty): Not reviewed yet(0)
 #
 NA,<29e8aa9>,2012-08-15,"Low: Test: Fix argument passing for lrmd and fencing tests"
 NA,<53e16e5>,2012-08-15,"Low: Build: Simplify the task of creating a chroot"
@@ -128,28 +128,28 @@ NA,<32139a1>,2012-07-26,"Low: attrd: Improved client logging of failures"
 NA,<b7c0e7f>,2012-07-26,"Medium: crmd: Only close the attrd connection if sending failed permanently"
 NA,<b891011>,2012-07-26,"High: lrmd: Prevent use-after-free by the client if the connection dies"
 NA,<aee5fec>,2012-07-25,"Low: doc: TODO list update"
-TBA,<116ee69>,2012-07-26,"Low: crmd: Minor tweak to error message"
+NA,<116ee69>,2012-07-26,"Low: crmd: Minor tweak to error message"
 NA,<6fedcf2>,2012-07-26,"High: cib: Resolve memory issues reported by valgrind"
 NA,<b39e5f5>,2012-07-26,"High: ipc: Retry sending requests that fail with -EAGAIN"
 NA,<0985133>,2012-07-26,"Low: Core: free_xml() is a superset of free_xml_from_parent(), deprecate the latter"
 NA,<5d28c19>,2012-07-26,"Low: Cluster: Better logging when all processes are marked as offline"
 NA,<bb06e15>,2012-07-26,"High: crmd: Ensure node_state updates have a valid uuid set"
 NA,<97b5907>,2012-07-25,"Low: Core: Improved tracing for digests and failed diff applications"
-TBA,<3a93dde>,2012-07-25,"Medium: cib: Include and verify a digest when replacing the entire CIB"
+NA,<3a93dde>,2012-07-25,"Medium: cib: Include and verify a digest when replacing the entire CIB"
 NA,<411195c>,2012-07-25,"Low: attrd: Improved logging"
 NA,<108db09>,2012-07-25,"Medium: PE: Tollerate node_state entries with only uname specified"
 NA,<731f622>,2012-07-25,"Low: PE: Improved logging of failed actions"
-TBA,<8c1738a>,2012-07-25,"High: Core: Correctly extract the version details from a diff"
+NA,<8c1738a>,2012-07-25,"High: Core: Correctly extract the version details from a diff"
 NA,<ba80b5e>,2012-07-25,"High: ipc: Read up to 10 messages per mainloop invocation"
 NA,<2eb0554>,2012-07-25,"High: ipc: Expose mainloop priority when adding ipc/fd sources"
 NA,<03be8f1>,2012-07-25,"Low: ipc: Logging updates"
 NA,<5ca40bb>,2012-07-24,"High: crmd: Reset the expected node state to pending when the cluster returns there"
 NA,<020bf97>,2012-07-24,"Low: ipc: Log the event queue length when sending to a client fails"
 NA,<e93498e>,2012-07-24,"Medium: ipc: Do not try to send to disconnected peers"
-TBA,<4c3d4f0>,2012-07-24,"Low: attrd: Better logging of failed updates"
+NA,<4c3d4f0>,2012-07-24,"Low: attrd: Better logging of failed updates"
 NA,<4642482>,2012-07-24,"Low: Core: Document the location of system errors"
 NA,<0b0543a>,2012-07-24,"Low: cts: Find more daemon errors"
-TBA,<26fe89c>,2012-07-24,"High: attrd: Differentiate between updating all our attributes and everybody updating all theirs too"
+REJ,<26fe89c>,2012-07-24,"High: attrd: Differentiate between updating all our attributes and everybody updating all theirs too"
 NA,<b431c18>,2012-07-24,"High: ipc: Prevent use-of-NULL when closing connections in the client"
 NA,<73e66ec>,2012-07-23,"Medium: cib: Drop unused API parameter while we're breaking everything else"
 NA,<6a54470>,2012-07-23,"Low: PE: Minor logging change"
