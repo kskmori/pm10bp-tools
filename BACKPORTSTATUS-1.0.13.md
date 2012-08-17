@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Wed Aug 15 19:28:52 JST 2012
+# Last updated: Fri Aug 17 19:14:51 JST 2012
 
 #
 # Summary:
-#   Backport commits: 10 / 91 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 8 / 91 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
 #   review commits: 0 / 1434 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1318), TBA: To Be Applied(4), PEND: Pending(6)
-# DONE: Applied(81), REJ: Rejected(25), (empty): Not reviewed yet(0)
+# NA: Not Applicable(1318), TBA: To Be Applied(0), PEND: Pending(8)
+# DONE: Applied(83), REJ: Rejected(25), (empty): Not reviewed yet(0)
 #
 [NA, 29e8aa9 ,2012-08-15,"Low: Test: Fix argument passing for lrmd and fencing tests"](https://github.com/kskmori/pacemaker/commit/29e8aa9)  
 [NA, 53e16e5 ,2012-08-15,"Low: Build: Simplify the task of creating a chroot"](https://github.com/kskmori/pacemaker/commit/53e16e5)  
@@ -88,14 +88,14 @@
 [NA, dbf2a96 ,2012-07-25,"Low: fencing: Use terminate() instead of kill() in regression test cleanup."](https://github.com/kskmori/pacemaker/commit/dbf2a96)  
 [NA, 1b58ee2 ,2012-07-29,"Merge pull request #125 from davidvossel/pengine_stderr_fix"](https://github.com/kskmori/pacemaker/commit/1b58ee2)  
 [NA, 26bb868 ,2012-07-27,"Low: pengine: Fixes mock pengine test failure, install *.stderr files to test directory."](https://github.com/kskmori/pacemaker/commit/26bb868)  
-[TBA, d11c140 ,2012-08-02,"High: crmd: Prevent use-of-NULL when free'ing empty hashtables"](https://github.com/kskmori/pacemaker/commit/d11c140)  
+[DONE, d11c140 ,2012-08-02,"High: crmd: Prevent use-of-NULL when free'ing empty hashtables"](https://github.com/kskmori/pacemaker/commit/d11c140)  
 [NA, 13e8e21 ,2012-08-01,"High: ipc: Re-allow truely asynchronous requests by no longer requiring a Response for every Request"](https://github.com/kskmori/pacemaker/commit/13e8e21)  
 [NA, a7b129c ,2012-08-01,"High: PE: Prevent use-of-NULL when tracing is enabled"](https://github.com/kskmori/pacemaker/commit/a7b129c)  
 [NA, 39e5c99 ,2012-08-01,"Low: Fencing: Some additional logging when complex self fencing cannot be forwarded"](https://github.com/kskmori/pacemaker/commit/39e5c99)  
 [NA, f7be90b ,2012-08-01,"Low: PE: Improved logging when a node has been shot but still contains the terminate flag"](https://github.com/kskmori/pacemaker/commit/f7be90b)  
 [NA, fbc9932 ,2012-08-01,"Low; PE: Drop unnessary log message"](https://github.com/kskmori/pacemaker/commit/fbc9932)  
 [NA, 2843e96 ,2012-08-01,"Low: PE: Improved logging when nodes need to be fenced because of active resources"](https://github.com/kskmori/pacemaker/commit/2843e96)  
-[TBA, 75d9742 ,2012-08-01,"Medium: crmd: Prevent use-of-NULL when startup fails"](https://github.com/kskmori/pacemaker/commit/75d9742)  
+[DONE, 75d9742 ,2012-08-01,"Medium: crmd: Prevent use-of-NULL when startup fails"](https://github.com/kskmori/pacemaker/commit/75d9742)  
 [NA, 5a45c63 ,2012-08-01,"Medium: attrd: Disconnect clients manually so we can log them"](https://github.com/kskmori/pacemaker/commit/5a45c63)  
 [NA, 2025174 ,2012-08-01,"Low: todo"](https://github.com/kskmori/pacemaker/commit/2025174)  
 [NA, a8da790 ,2012-08-01,"Low: cts: Wait until the cluster is stable before checking for startup fencing actions"](https://github.com/kskmori/pacemaker/commit/a8da790)  
@@ -106,8 +106,8 @@
 [NA, 243192c ,2012-07-31,"Low: Build: Default to /var/lib/pacemaker for core files"](https://github.com/kskmori/pacemaker/commit/243192c)  
 [NA, 236f7ff ,2012-07-31,"Low: Tools: crm_report - Only search for files inside directories that exist"](https://github.com/kskmori/pacemaker/commit/236f7ff)  
 [NA, 1d322d3 ,2012-07-30,"High: Tools: Teach crm_report how to find the new config and PE file locations"](https://github.com/kskmori/pacemaker/commit/1d322d3)  
-[TBA, 7be61e6 ,2012-07-30,"Low: PE: Sort nodes alphabetically so that they display consistently in CLI tools (update regression test)"](https://github.com/kskmori/pacemaker/commit/7be61e6)  
-[TBA, af407b9 ,2012-07-30,"Low: PE: Sort nodes alphabetically so that they display consistently in CLI tools"](https://github.com/kskmori/pacemaker/commit/af407b9)  
+[PEND, 7be61e6 ,2012-07-30,"Low: PE: Sort nodes alphabetically so that they display consistently in CLI tools (update regression test)"](https://github.com/kskmori/pacemaker/commit/7be61e6)  
+[PEND, af407b9 ,2012-07-30,"Low: PE: Sort nodes alphabetically so that they display consistently in CLI tools"](https://github.com/kskmori/pacemaker/commit/af407b9)  
 [NA, 60ee64c ,2012-07-30,"Low: Core: Send a short-form xml diff to the logs unless debugging"](https://github.com/kskmori/pacemaker/commit/60ee64c)  
 [NA, 0dad909 ,2012-07-27,"Low: Core: Improve the output of xml diffs"](https://github.com/kskmori/pacemaker/commit/0dad909)  
 [NA, c67f685 ,2012-07-27,"High: cib: Move cib.xml out of the heartbeat tree for new installations"](https://github.com/kskmori/pacemaker/commit/c67f685)  
