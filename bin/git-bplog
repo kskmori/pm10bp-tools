@@ -6,11 +6,14 @@ refmemo=backport-1.0-memo
 limittag=Pacemaker-1.1.6
 
 usage() {
-  echo "usage: $0 [-l|t|n] [-N <num>] [-h]"
+  echo "usage: $0 [-l|t|n] [-N <num>] [-g <pattern>] [-h]"
   echo "    -l: print all backport status"
   echo "    -t: print commits to be applied"
+  echo "    -p: print commits pending to be applied"
   echo "    -n: print commits not determined"
   echo "    -N: print last <num> hashes of the commits not determined"
+  echo "    -g: print commits that matches to <pattern>"
+  echo "    -G: print hashes of the commits that matches to <pattern>"
   echo "    -h: print usage"
   exit 1;
 }
@@ -18,15 +21,23 @@ usage() {
 lastnumhashes() {
     grep ^, | tail -n "$1" | cut -d, -f2 | tr -d '<>'
 }
+splithashes() {
+    grep ^, | cut -d, -f2 | tr -d '<>'
+}
+
 
 FILTER="cat"
 LASTNUM="0"
-while getopts "ltnhN:" opt; do
+LOGGREP=""
+while getopts "ltpnhN:g:G:" opt; do
   case $opt in
     l) FILTER="grep ^\(TBA\|DONE\|PEND\|REJ\)";;
-    t) FILTER="grep ^\(TBA\|PEND\)";;
+    t) FILTER="grep ^\(TBA\)";;
+    p) FILTER="grep ^\(PEND\)";;
     n) FILTER="grep ^,";;
     N) LASTNUM="$OPTARG"; FILTER="lastnumhashes $LASTNUM";;
+    g) LOGGREP="--grep=$OPTARG";;
+    G) LOGGREP="--grep=$OPTARG"; FILTER="splithashes";;
     h) usage;;
   esac
 done
@@ -35,6 +46,6 @@ shift $(($OPTIND - 1))
 
 # unset displayRef in git-config to show only relevant notes.
 export GIT_NOTES_DISPLAY_REF=
-git log --topo-order -C -M --pretty=format:'%N,<%h>,%ad,"%s"' --date=short --show-notes=$refstatus $limittag.. | awk '/^STATUS:/ { printf("%s", $2); next } { print }' | $FILTER
+git log --topo-order -C -M --pretty=format:'%N,<%h>,%ad,"%s"' --date=short --show-notes=$refstatus $LOGGREP $limittag.. | awk '/^STATUS:/ { printf("%s", $2); next } { print }' | $FILTER
 
 

@@ -4,7 +4,7 @@ refstatus=backport-1.0-status
 refmemo=backport-1.0-memo
 
 usage() {
-  echo "usage: $0 [-p] [-d] [-s <status>] [-m <memo>] [-N <num>] [-h] hash"
+  echo "usage: $0 [-p] [-d] [-s <status>] [-m <memo>] [-N <num>] [-g <pattern>] [-h] hash"
   echo "    -p: print  notes/memo"
   echo "    -d: delete status/memo"
   echo "    <status>=NA|TBA|DONE|PEND|REJ"
@@ -56,13 +56,15 @@ delete=""
 status=""
 memo=""
 lastnum=""
-while getopts "pds:m:N:h" opt; do
+pattern=""
+while getopts "pds:m:N:g:h" opt; do
   case $opt in
     p) print=true;;
     d) delete=true;;
     s) status="$OPTARG";;
     m) memo="$OPTARG";;
     N) lastnum="$OPTARG";;
+    g) pattern="$OPTARG";;
     h) usage;;
   esac
 done
@@ -73,6 +75,11 @@ commits="$@"
 
 if [ -n "$lastnum" ]; then
     commits=`git bplog -N $lastnum`
+    echo "Changing status of commits:"
+    echo "$commits"
+fi
+if [ -n "$pattern" ]; then
+    commits=`git bplog -G "$pattern"`
     echo "Changing status of commits:"
     echo "$commits"
 fi
