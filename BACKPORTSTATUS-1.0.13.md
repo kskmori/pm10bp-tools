@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Fri Feb  1 17:28:52 JST 2013
+# Last updated: Mon Feb  4 11:37:56 JST 2013
 
 #
 # Summary:
-#   Backport commits: 21 / 116 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 1 / 116 (Rest:TBA / Total: TBA+PEND+DONE)
 #   review commits: 177 / 2069 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1750), TBA: To Be Applied(5), PEND: Pending(16)
-# DONE: Applied(95), REJ: Rejected(26), (empty): Not reviewed yet(177)
+# NA: Not Applicable(1750), TBA: To Be Applied(1), PEND: Pending(16)
+# DONE: Applied(99), REJ: Rejected(26), (empty): Not reviewed yet(177)
 #
 [, 20de0ab ,2013-01-22,"Merge pull request #209 from davidvossel/lrmd_tls_init"](https://github.com/kskmori/pacemaker/commit/20de0ab)  
 [, 65f37cf ,2013-01-14,"Low: lrmd: Regression tests for remote lrmd"](https://github.com/kskmori/pacemaker/commit/65f37cf)  
@@ -187,7 +187,7 @@
 [NA, 1a2393a ,2012-11-01,"Merge pull request #180 from jnpkrn/patches"](https://github.com/kskmori/pacemaker/commit/1a2393a)  
 [NA, 5d64015 ,2012-11-01,"Low: cib: remove commented out part in createEmptyCib"](https://github.com/kskmori/pacemaker/commit/5d64015)  
 [NA, d5c7c8d ,2012-11-01,"Low: more consistent use of F_CRM_ macros"](https://github.com/kskmori/pacemaker/commit/d5c7c8d)  
-[TBA, fc8eb04 ,2012-07-24,"Low: extra/resources/HealthCPU: ideling->idling"](https://github.com/kskmori/pacemaker/commit/fc8eb04)  
+[DONE, fc8eb04 ,2012-07-24,"Low: extra/resources/HealthCPU: ideling->idling"](https://github.com/kskmori/pacemaker/commit/fc8eb04)  
 [NA, a59ddf4 ,2012-07-24,"Low: xml: fix typo in dtd files"](https://github.com/kskmori/pacemaker/commit/a59ddf4)  
 [NA, be01286 ,2012-11-01,"Merge pull request #181 from jnpkrn/patches-xml"](https://github.com/kskmori/pacemaker/commit/be01286)  
 [NA, 33e8146 ,2012-11-01,"Med: xml: fix RELAG NG spec. violation in rule.rng"](https://github.com/kskmori/pacemaker/commit/33e8146)  
@@ -272,7 +272,7 @@
 [NA, 6e3e4d6 ,2012-10-18,"Low: doc: Updated completed items in todo list"](https://github.com/kskmori/pacemaker/commit/6e3e4d6)  
 [PEND, a7597e9 ,2012-10-18,"High: Core: Correctly process XML diff's involving element removal"](https://github.com/kskmori/pacemaker/commit/a7597e9)  
 [NA, 92ee412 ,2012-10-18,"Low: cib: Include the digest when displaying xml diffs"](https://github.com/kskmori/pacemaker/commit/92ee412)  
-[TBA, 3a770b0 ,2012-10-18,"Low: crmd: Correctly log when quorum is lost"](https://github.com/kskmori/pacemaker/commit/3a770b0)  
+[DONE, 3a770b0 ,2012-10-18,"Low: crmd: Correctly log when quorum is lost"](https://github.com/kskmori/pacemaker/commit/3a770b0)  
 [NA, 86e8d28 ,2012-10-17,"Low: Build: Support the public coverity instance"](https://github.com/kskmori/pacemaker/commit/86e8d28)  
 [NA, 7be4260 ,2012-10-17,"Low: cts: More patterns to ignore when corosync is killed"](https://github.com/kskmori/pacemaker/commit/7be4260)  
 [NA, 499d1fb ,2012-10-17,"Low: doc: Update translation templates"](https://github.com/kskmori/pacemaker/commit/499d1fb)  
@@ -295,9 +295,9 @@
 [NA, d0d5b27 ,2012-10-08,"High: fencing: Retry stonith device for duration of action's timeout period."](https://github.com/kskmori/pacemaker/commit/d0d5b27)  
 [NA, d5c1329 ,2012-10-15,"Low: Build: Bugfix for ./configure when using Heartbeat"](https://github.com/kskmori/pacemaker/commit/d5c1329)  
 [NA, 68cffae ,2012-10-16,"High: IPC: Bug cl#5110 - Prevent 100% CPU usage when looking for synchronous replies"](https://github.com/kskmori/pacemaker/commit/68cffae)  
-[TBA, 0456cb2 ,2012-10-16,"Medium: tools: Fix handling of cibadmin --node"](https://github.com/kskmori/pacemaker/commit/0456cb2)  
+[DONE, 0456cb2 ,2012-10-16,"Medium: tools: Fix handling of cibadmin --node"](https://github.com/kskmori/pacemaker/commit/0456cb2)  
 [NA, b576450 ,2012-10-12,"Low: doc: Ensure pcs and crmsh variants get built in serial"](https://github.com/kskmori/pacemaker/commit/b576450)  
-[TBA, 197275f ,2012-10-12,"Medium: crmd: Bug cl#5109 - Do not record pending cancel operations in the CIB"](https://github.com/kskmori/pacemaker/commit/197275f)  
+[DONE, 197275f ,2012-10-12,"Medium: crmd: Bug cl#5109 - Do not record pending cancel operations in the CIB"](https://github.com/kskmori/pacemaker/commit/197275f)  
 [NA, 5edd214 ,2012-10-12,"Low: doc: Fix escaped brackets in xml examples"](https://github.com/kskmori/pacemaker/commit/5edd214)  
 [NA, 1e1e050 ,2012-10-11,"Medium: Fencing: Implement a dummy function that uses -lpils so that smartass linkers don't drop the reference"](https://github.com/kskmori/pacemaker/commit/1e1e050)  
 [NA, 70a18f5 ,2012-10-11,"Low: Build: Fix anchor for STONITH chapter"](https://github.com/kskmori/pacemaker/commit/70a18f5)  

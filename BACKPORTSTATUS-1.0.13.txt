@@ -1,13 +1,13 @@
 # Backport status report for Pacemaker 1.0.13
-# Last updated: Fri Feb  1 17:28:52 JST 2013
+# Last updated: Mon Feb  4 11:37:56 JST 2013
 
 #
 # Summary:
-#   Backport commits: 21 / 116 (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: 1 / 116 (Rest:TBA / Total: TBA+PEND+DONE)
 #   review commits: 177 / 2069 (Rest:empty / Total commits)
 #
-# NA: Not Applicable(1750), TBA: To Be Applied(5), PEND: Pending(16)
-# DONE: Applied(95), REJ: Rejected(26), (empty): Not reviewed yet(177)
+# NA: Not Applicable(1750), TBA: To Be Applied(1), PEND: Pending(16)
+# DONE: Applied(99), REJ: Rejected(26), (empty): Not reviewed yet(177)
 #
 ,<20de0ab>,2013-01-22,"Merge pull request #209 from davidvossel/lrmd_tls_init"
 ,<65f37cf>,2013-01-14,"Low: lrmd: Regression tests for remote lrmd"
@@ -187,7 +187,7 @@ NA,<756ae5c>,2012-11-01,"Low: fencing: Add option for specifying number of fenci
 NA,<1a2393a>,2012-11-01,"Merge pull request #180 from jnpkrn/patches"
 NA,<5d64015>,2012-11-01,"Low: cib: remove commented out part in createEmptyCib"
 NA,<d5c7c8d>,2012-11-01,"Low: more consistent use of F_CRM_ macros"
-TBA,<fc8eb04>,2012-07-24,"Low: extra/resources/HealthCPU: ideling->idling"
+DONE,<fc8eb04>,2012-07-24,"Low: extra/resources/HealthCPU: ideling->idling"
 NA,<a59ddf4>,2012-07-24,"Low: xml: fix typo in dtd files"
 NA,<be01286>,2012-11-01,"Merge pull request #181 from jnpkrn/patches-xml"
 NA,<33e8146>,2012-11-01,"Med: xml: fix RELAG NG spec. violation in rule.rng"
@@ -272,7 +272,7 @@ NA,<2ad3fd0>,2012-10-18,"Low: Core: Update our configuration header with new def
 NA,<6e3e4d6>,2012-10-18,"Low: doc: Updated completed items in todo list"
 PEND,<a7597e9>,2012-10-18,"High: Core: Correctly process XML diff's involving element removal"
 NA,<92ee412>,2012-10-18,"Low: cib: Include the digest when displaying xml diffs"
-TBA,<3a770b0>,2012-10-18,"Low: crmd: Correctly log when quorum is lost"
+DONE,<3a770b0>,2012-10-18,"Low: crmd: Correctly log when quorum is lost"
 NA,<86e8d28>,2012-10-17,"Low: Build: Support the public coverity instance"
 NA,<7be4260>,2012-10-17,"Low: cts: More patterns to ignore when corosync is killed"
 NA,<499d1fb>,2012-10-17,"Low: doc: Update translation templates"
@@ -295,9 +295,9 @@ NA,<aea6803>,2012-10-08,"Low: fencing: Regression tests for action retry until t
 NA,<d0d5b27>,2012-10-08,"High: fencing: Retry stonith device for duration of action's timeout period."
 NA,<d5c1329>,2012-10-15,"Low: Build: Bugfix for ./configure when using Heartbeat"
 NA,<68cffae>,2012-10-16,"High: IPC: Bug cl#5110 - Prevent 100% CPU usage when looking for synchronous replies"
-TBA,<0456cb2>,2012-10-16,"Medium: tools: Fix handling of cibadmin --node"
+DONE,<0456cb2>,2012-10-16,"Medium: tools: Fix handling of cibadmin --node"
 NA,<b576450>,2012-10-12,"Low: doc: Ensure pcs and crmsh variants get built in serial"
-TBA,<197275f>,2012-10-12,"Medium: crmd: Bug cl#5109 - Do not record pending cancel operations in the CIB"
+DONE,<197275f>,2012-10-12,"Medium: crmd: Bug cl#5109 - Do not record pending cancel operations in the CIB"
 NA,<5edd214>,2012-10-12,"Low: doc: Fix escaped brackets in xml examples"
 NA,<1e1e050>,2012-10-11,"Medium: Fencing: Implement a dummy function that uses -lpils so that smartass linkers don't drop the reference"
 NA,<70a18f5>,2012-10-11,"Low: Build: Fix anchor for STONITH chapter"
