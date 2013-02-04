@@ -43,7 +43,8 @@ close(TMP_TXT);
 close(TMP_MD);
 close(BPLOG);
 
-$rest = $tba + $pend;
+#$rest = $tba + $pend;
+$rest = $tba;
 $bptotal = $tba + $pend + $done;
 $date = `env LANG=C date`;
 
@@ -52,7 +53,7 @@ $header = <<"EOF"
 # Last updated: $date
 #
 # Summary:
-#   Backport commits: $rest / $bptotal (Rest:TBA+PEND / Total: TBA+PEND+DONE)
+#   Backport commits: $rest / $bptotal (Rest:TBA / Total: TBA+PEND+DONE)
 #   review commits: $empty / $total (Rest:empty / Total commits)
 #
 # NA: Not Applicable($na), TBA: To Be Applied($tba), PEND: Pending($pend)
